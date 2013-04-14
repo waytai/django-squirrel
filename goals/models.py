@@ -16,6 +16,6 @@ class Goal(models.Model):
     modified_by = models.ForeignKey(User, related_name="+")
     user = models.ForeignKey(User, related_name="goals")
     end_amount = models.IntegerField(null=True, blank=True)
-    current_amount = models.IntegerField()
+    current_amount = models.IntegerField(default=0)
     target_date = models.DateField(null=True, blank=True)
     status = models.SmallIntegerField(choices=STATUS_CHOICES)
