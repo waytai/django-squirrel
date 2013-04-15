@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class Goal(models.Model):
 
     STATUS_CHOICES = (
-        (0, 'Inactive'),  # savings entered manually
+        (0, 'Manual'),  # savings entered manually
         (1, 'Achieved'),  # target reached
         (2, 'Ongoing'),  # specific amount saved over recurring period
     )
