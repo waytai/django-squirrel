@@ -21,6 +21,9 @@ class Goal(models.Model):
     target_date = models.DateField(null=True, blank=True)
     status = models.SmallIntegerField(choices=STATUS_CHOICES)
 
+    def __unicode__(self):
+        return self.name
+
 
 class Transaction(models.Model):
 
@@ -29,3 +32,6 @@ class Transaction(models.Model):
     goal = models.ForeignKey(Goal)
     pay_in = models.BooleanField(default=True)
     amount = models.IntegerField(null=False)
+
+    def __unicode__(self):
+        return self.amount
