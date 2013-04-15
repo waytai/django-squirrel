@@ -63,5 +63,13 @@ class Transaction(models.Model):
     pay_in = models.BooleanField(default=True)
     amount = models.IntegerField(null=False)
 
+    def clean(self):
+        from django.core.exceptions import ValidationError
+        # payin - amount cannot be negative
+        if self.pay_in is True and self.amount < 0:
+            raise ValidationError("Amount must be positive for a pay in.")
+        if self.pay_in is False and self.amount > 0:
+            raise ValidationError("Amount must be negative for a pay out.")
+
     def __unicode__(self):
         return self.amount
