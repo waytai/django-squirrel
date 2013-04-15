@@ -30,9 +30,9 @@ class Goal(models.Model):
     target_date = models.DateField(null=True, blank=True)
     status = models.SmallIntegerField(choices=STATUS_CHOICES)
 
-    period = models.SmallIntegerField(choices=PERIOD_CHOICES, null=True, blank=True)
-    period_step = models.SmallIntegerField(null=True, blank=True)
-    period_increment = models.IntegerField(null=True, blank=True)
+    period = models.SmallIntegerField(choices=PERIOD_CHOICES, null=True, blank=True, default=4)
+    period_step = models.SmallIntegerField(null=True, blank=True, default=1)
+    period_increment = models.IntegerField(null=True, blank=True, default=100)
 
     def clean(self):
         from django.core.exceptions import ValidationError
