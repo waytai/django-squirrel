@@ -20,3 +20,12 @@ class Goal(models.Model):
     current_amount = models.IntegerField(default=0)
     target_date = models.DateField(null=True, blank=True)
     status = models.SmallIntegerField(choices=STATUS_CHOICES)
+
+
+class Transaction(models.Model):
+
+    created_date = models.DateTimeField(auto_now_add=True)
+    created_by = models.ForeignKey(User)
+    goal = models.ForeignKey(Goal)
+    pay_in = models.BooleanField(default=True)
+    amount = models.IntegerField(null=False)
