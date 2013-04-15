@@ -68,6 +68,7 @@ class Transaction(models.Model):
         # payin - amount cannot be negative
         if self.pay_in is True and self.amount < 0:
             raise ValidationError("Amount must be positive for a pay in.")
+        # payout - amount cannot be positive
         if self.pay_in is False and self.amount > 0:
             raise ValidationError("Amount must be negative for a pay out.")
 
