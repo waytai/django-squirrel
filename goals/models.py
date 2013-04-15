@@ -52,7 +52,7 @@ class Goal(models.Model):
                 raise ValidationError("The period increment cannot be zero.")
 
     def __unicode__(self):
-        return "%s: %s" % (self.name, self.target_amount)
+        return "%s: %s" % (self.name, self.target_amount if self.target_amount is not None else "Unlimited")
 
 
 class Transaction(models.Model):
