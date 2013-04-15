@@ -34,6 +34,16 @@ class Goal(models.Model):
     period_step = models.SmallIntegerField(null=True, blank=True)
     period_increment = models.IntegerField(null=True, blank=True)
 
+    def clean(self):
+        from django.core.exceptions import ValidationError
+        if self.status == 2:
+            if self.period is None:
+                raise ValidationError("A value for Period must be selected.")
+            if self.period_step is None:
+                raise ValidationError("A value for Period Step must be selected.")
+            if self.period_increment is None:
+                raise ValidationError("A value for Period Increment must be selected.")
+
     def __unicode__(self):
         return "%s: %s" % (self.name, self.target_amount)
 
