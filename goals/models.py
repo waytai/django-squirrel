@@ -36,13 +36,20 @@ class Goal(models.Model):
 
     def clean(self):
         from django.core.exceptions import ValidationError
+        # Validation for ongoing goals
         if self.status == 2:
+            # period is required
             if self.period is None:
                 raise ValidationError("A value for Period must be selected.")
+            # period step is required
             if self.period_step is None:
                 raise ValidationError("A value for Period Step must be selected.")
+            # period increment is required
             if self.period_increment is None:
                 raise ValidationError("A value for Period Increment must be selected.")
+            # period increment cannot be zero
+            if self.period_increment == 0:
+                raise ValidationError("The period increment cannot be zero.")
 
     def __unicode__(self):
         return "%s: %s" % (self.name, self.target_amount)
