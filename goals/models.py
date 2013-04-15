@@ -15,6 +15,7 @@ class Goal(models.Model):
     modified_date = models.DateTimeField(auto_now=True)
     modified_by = models.ForeignKey(User, related_name="+")
     user = models.ForeignKey(User, related_name="goals")
+    name = models.CharField(max_length=50)
     end_amount = models.IntegerField(null=True, blank=True)
     current_amount = models.IntegerField(default=0)
     target_date = models.DateField(null=True, blank=True)
