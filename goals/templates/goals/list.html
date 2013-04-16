@@ -11,7 +11,7 @@
     <tr>
         <td>{{ goal.name }}</td>
         <td>{{ goal.current_amount }}</td>
-        <td>{{ goal.target_amount }}</td>
+        <td>{{ goal.target_amount|default:"N/A" }}</td>
     </tr>
     {% empty %}
     <tr>
