@@ -46,7 +46,7 @@
             <ul class="nav">
               <li class="active"><a href="/goals/">Home</a></li>
               <li><a href="/goals/list/">My Goals</a></li>
-              {% if request.user.is_authenticated %}
+              {% if user.is_authenticated %}
               <li><a href="/accounts/logout/">Logout</a></li>
               {% else %}
               <li><a href="/accounts/login/">Login</a></li>
