@@ -12,4 +12,4 @@ def dashboard(request):
 
 
 def home(request):
-    return render_response(request, "goals/home.html", {})
+    return render_response(request, "goals/list.html", {})

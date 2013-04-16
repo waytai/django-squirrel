@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>My Goals</h3>
+<table class="table table-bordered table-striped table-hover">
+    <tr>
+        <th>Name</th>
+        <th>Current</th>
+        <th>Target</th>
+    </tr>
+    {% for goal in goals %}
+    <tr>
+        <td>{{ goal.name }}</td>
+        <td>{{ goal.current_amount }}</td>
+        <td>{{ goal.target_amount }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="3">You have no goals yet.</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
