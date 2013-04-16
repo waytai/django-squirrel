@@ -1,1 +1,6 @@
-# Create your views here.
+def dashboard(request):
+    pass
+
+
+def home(request):
+    pass
