@@ -19,3 +19,8 @@ def home(request):
         'goals': goals
     }
     return render_response(request, "goals/list.html", template_variables)
+
+
+def new(request):
+    template_variables = {}
+    return render_response(request, "goals/new.html", template_variables)
