@@ -1,6 +1,7 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 
+from goals.forms import AddGoalForm
 from goals.queries import get_goals_by_user
 
 
@@ -22,5 +23,8 @@ def home(request):
 
 
 def new(request):
-    template_variables = {}
+    new_goal_form = AddGoalForm()
+    template_variables = {
+        'form': new_goal_form
+    }
     return render_response(request, "goals/new.html", template_variables)

@@ -1,4 +1,10 @@
 {% extends "base.html" %}
-{% block content %}
+{% load crispy_forms_tags %}
 
+{% block js_ready %}
+    init_page();
+{% endblock %}
+
+{% block content %}
+{% crispy form %}
 {% endblock %}
