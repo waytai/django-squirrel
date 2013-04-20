@@ -9,14 +9,14 @@ from crispy_forms.layout import Layout, Fieldset, ButtonHolder, Submit, Div
 class AddGoalForm(forms.Form):
 
     name = forms.CharField(max_length=50)
-    specific_target = forms.BooleanField(label="I have a specific target amount in mind")
-    target_amount = forms.IntegerField()
+    specific_target = forms.BooleanField(required=False, label="I have a specific target amount in mind")
+    target_amount = forms.IntegerField(required=False)
     starting_amount = forms.IntegerField(initial=0)
-    target_date = forms.DateField()
-    regular_payins = forms.BooleanField(label="I want to make regular contributions")
-    period = forms.ChoiceField(choices=Goal.PERIOD_CHOICES)
-    step = forms.IntegerField(initial=1)
-    increment = forms.IntegerField(initial=100)
+    target_date = forms.DateField(required=False)
+    regular_payins = forms.BooleanField(required=False, label="I want to make regular contributions")
+    period = forms.ChoiceField(choices=Goal.PERIOD_CHOICES, required=False)
+    step = forms.IntegerField(initial=1, required=False)
+    increment = forms.IntegerField(initial=100, required=False)
 
     def __init__(self, *args, **kwargs):
         super(AddGoalForm, self).__init__(*args, **kwargs)
